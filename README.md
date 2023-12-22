@@ -24,13 +24,14 @@ Changes made to files in **docker/ubi8-minimal/** directory:
 
 **build.sh changes:**
 
-![Screenshot from 2023-12-22 22-22-16](ScreenShots/Screenshot from 2023-12-22 22-22-16.png)
-
+<p align="center">
+  <img src="ScreenShots/Screenshot from 2023-12-22 22-22-16.png" alt="drawing" width="960"/>
+</p>
 
 
 **Dockerfile changes:**
 
-![Screenshot from 2023-12-22 22-22-51](ScreenShots/Screenshot from 2023-12-22 22-22-51.png)
-
-
+<p align="center">
+  <img src="ScreenShots/Screenshot from 2023-12-22 22-22-51.png" alt="drawing" width="960"/>
+</p>
 
