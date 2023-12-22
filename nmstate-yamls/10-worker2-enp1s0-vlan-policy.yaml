@@ -1,0 +1,132 @@
+apiVersion: nmstate.io/v1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: worker2-enp1s0-vlan-policy 
+spec:
+  nodeSelector: 
+    kubernetes.io/hostname: worker2.home.lab.diktio.net
+  desiredState:
+    interfaces:
+    - name: vlan1151
+      description: VLAN enp1s0.1151
+      type: vlan 
+      state: up
+      mtu: 9000
+      ipv4:
+        dhcp: false
+        enabled: false
+      ipv6:
+        dhcp: false
+        enabled: false
+      vlan:
+        base-iface: enp1s0
+        id: 1151
+    - name: vlan1152
+      description: VLAN enp1s0.1152
+      type: vlan 
+      state: up
+      mtu: 9000
+      ipv4:
+        dhcp: false
+        enabled: false
+      ipv6:
+        dhcp: false
+        enabled: false
+      vlan:
+        base-iface: enp1s0
+        id: 1152
+    - name: vlan1153
+      description: VLAN enp1s0.1153
+      type: vlan 
+      state: up
+      mtu: 9000
+      ipv4:
+        dhcp: false
+        enabled: false
+      ipv6:
+        dhcp: false
+        enabled: false
+      vlan:
+        base-iface: enp1s0
+        id: 1153
+    - name: enp1s0.1154
+      description: VLAN enp1s0.1154 for Linux Bridge
+      type: vlan 
+      state: up
+      mtu: 9000
+      ipv4:
+        dhcp: false
+        enabled: false
+      ipv6:
+        dhcp: false
+        enabled: false
+      vlan:
+        base-iface: enp1s0 
+        id: 1154
+    - name: bridge-1154
+      description: Linux bridge with enp1s0.1154 as a port 
+      type: linux-bridge 
+      state: up 
+      mtu: 9000
+      ipv4:
+        enabled: false 
+      bridge:
+        options:
+          stp:
+            enabled: false 
+        port:
+          - name: enp1s0.1154
+    - name: enp1s0.1155
+      description: VLAN enp1s0.1155 for Linux Bridge
+      type: vlan 
+      state: up
+      mtu: 9000
+      ipv4:
+        dhcp: false
+        enabled: false
+      ipv6:
+        dhcp: false
+        enabled: false
+      vlan:
+        base-iface: enp1s0 
+        id: 1155
+    - name: bridge-1155
+      description: Linux bridge with enp1s0.1155 as a port 
+      type: linux-bridge 
+      state: up 
+      mtu: 9000
+      ipv4:
+        enabled: false 
+      bridge:
+        options:
+          stp:
+            enabled: false 
+        port:
+          - name: enp1s0.1155
+    - name: enp1s0.1156
+      description: VLAN enp1s0.1156 for Linux Bridge
+      type: vlan 
+      state: up
+      mtu: 9000
+      ipv4:
+        dhcp: false
+        enabled: false
+      ipv6:
+        dhcp: false
+        enabled: false
+      vlan:
+        base-iface: enp1s0 
+        id: 1156
+    - name: bridge-1156
+      description: Linux bridge with enp1s0.1156 as a port 
+      type: linux-bridge 
+      state: up 
+      mtu: 9000
+      ipv4:
+        enabled: false 
+      bridge:
+        options:
+          stp:
+            enabled: false 
+        port:
+          - name: enp1s0.1156

@@ -1,0 +1,28 @@
+---
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: lb-bridge-1154-nad-layer2 
+  annotations:
+    k8s.v1.cni.cncf.io/resourceName: bridge.network.kubevirt.io/bridge-1154
+  namespace: default
+spec:
+  config: '{
+      "cniVersion": "0.3.1",
+      "name": "macvlan-vrf",
+      "plugins":
+        [
+          {
+            "cniVersion": "0.3.1",
+            "name": "lb-bridge-1154-nad-layer2",
+            "type": "cnv-bridge",
+            "bridge": "bridge-1154", 
+            "macspoofchk": true
+          },
+          {
+            "type": "vrf",
+            "vrfname": "frr1150",
+            "table": 1150
+          }
+        ]
+    }'

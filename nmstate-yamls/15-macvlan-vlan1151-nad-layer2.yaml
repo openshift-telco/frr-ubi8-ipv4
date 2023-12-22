@@ -1,0 +1,27 @@
+---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: macvlan-vlan1151-nad-layer2
+  namespace: default
+spec:
+  config: |-
+    {
+      "cniVersion": "0.3.1",
+      "name": "macvlan-vrf",
+      "plugins":
+        [
+          {
+            "cniVersion": "0.3.1",
+            "name": "macvlan-vlan1151-nad-layer2",
+              "mode": "bridge",
+            "type": "macvlan",
+            "master": "vlan1151"
+          },
+          {
+            "type": "vrf",
+            "vrfname": "frr1150",  
+            "table": 1150   
+          }
+        ]
+    }

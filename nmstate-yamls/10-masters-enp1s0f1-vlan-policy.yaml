@@ -1,0 +1,35 @@
+apiVersion: nmstate.io/v1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: masters-enp1s0f1-vlan-policy 
+spec:
+  nodeSelector: 
+    node-role.kubernetes.io/master: ''
+  desiredState:
+    interfaces:
+    - name: enp1s0f1
+      description: enp1s0f1 
+      type: ethernet
+      state: up 
+      mtu: 9004
+      ipv4:
+        dhcp: false
+        enabled: false
+      ipv6:
+        dhcp: false
+        enabled: false
+    - name: vlan1141
+      description: VLAN enp1s0f1.1141
+      type: vlan 
+      state: up
+      mtu: 9000
+      ipv4:
+        dhcp: false
+        enabled: false
+      ipv6:
+        dhcp: false
+        enabled: false
+      vlan:
+        base-iface: enp1s0f1
+        id: 1141
+
