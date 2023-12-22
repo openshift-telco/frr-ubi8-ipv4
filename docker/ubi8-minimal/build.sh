@@ -40,8 +40,6 @@ fi
 
 DOCKERFILE_PATH="$(dirname $(realpath $0))/Dockerfile"
 
-#	--cache-from="frr:$DISTRO-builder-$GITREV" \
-
 podman build \
 	--cache-from="frr" \
 	--file="$DOCKERFILE_PATH" \

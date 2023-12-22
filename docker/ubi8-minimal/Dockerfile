@@ -38,7 +38,6 @@ RUN microdnf --disableplugin=subscription-manager --setopt=install_weak_deps=0 i
     texinfo \
     tzdata \
     protobuf-c-devel \
-    protobuf-c-1.3.0-8.el8.i686 \
     && microdnf --disableplugin=subscription-manager clean all
 
 RUN curl -sSL -o /tmp/libyang2.rpm https://ci1.netdef.org/artifact/LIBYANG-LIBYANG2/shared/build-181/RedHat-8-x86_64-Packages/libyang-2.1.80-1.el8.x86_64.rpm \
@@ -115,7 +114,6 @@ RUN curl -sSL -o /tmp/libyang2.rpm https://ci1.netdef.org/artifact/LIBYANG-LIBYA
 RUN curl -sSL -o /tmp/librtr.rpm https://ci1.netdef.org/artifact/RPKI-RTRLIB/shared/build-149/RedHat-8-x86_64-Packages/librtr-0.8.0-1.el8.x86_64.rpm \
     && rpm -i /tmp/librtr.rpm \
     && rm -f /tmp/librtr.rpm
-
 
 COPY --from=ubi8-minimal-builder /rpmbuild/RPMS/ /pkgs/rpm/
 
